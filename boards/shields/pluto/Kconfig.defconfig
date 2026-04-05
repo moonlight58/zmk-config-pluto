@@ -1,0 +1,16 @@
+if SHIELD_PLUTO_LEFT || SHIELD_PLUTO_RIGHT
+
+config ZMK_KEYBOARD_NAME
+    default "Pluto"
+
+config ZMK_SPLIT
+    default y
+
+if SHIELD_PLUTO_LEFT
+
+config ZMK_SPLIT_BLE_CENTRAL
+    default y
+
+endif # SHIELD_PLUTO_LEFT
+
+endif # SHIELD_PLUTO_LEFT || SHIELD_PLUTO_RIGHT

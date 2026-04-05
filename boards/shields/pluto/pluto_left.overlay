@@ -1,0 +1,24 @@
+/*
+ * Pluto Left Half
+ *
+ * Physical columns (left to right):
+ *   col 0 = first  (P0.20) — outermost left
+ *   col 1 = second (P0.22)
+ *   col 2 = third  (P0.24)
+ *   col 3 = fourth (P1.00)
+ *   col 4 = fifth  (P0.11)
+ *   col 5 = sixth  (P0.17) — innermost, adjacent to center
+ */
+
+#include "pluto.dtsi"
+
+&kscan0 {
+    col-gpios
+        = <&gpio0 20 GPIO_ACTIVE_HIGH>   /* col 0: first  (outermost) */
+        , <&gpio0 22 GPIO_ACTIVE_HIGH>   /* col 1: second */
+        , <&gpio0 24 GPIO_ACTIVE_HIGH>   /* col 2: third  */
+        , <&gpio1  0 GPIO_ACTIVE_HIGH>   /* col 3: fourth */
+        , <&gpio0 11 GPIO_ACTIVE_HIGH>   /* col 4: fifth  */
+        , <&gpio0 17 GPIO_ACTIVE_HIGH>   /* col 5: sixth  (innermost) */
+        ;
+};
