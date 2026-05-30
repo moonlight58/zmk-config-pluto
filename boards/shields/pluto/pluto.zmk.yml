@@ -1,0 +1,12 @@
+file_format: "1"
+id: pluto
+name: Pluto
+type: shield
+url: https://github.com/nickcoutsos/keyswitch-layout-tools
+requires:
+  - pro_micro
+features:
+  - keys
+siblings:
+  - pluto_left
+  - pluto_right

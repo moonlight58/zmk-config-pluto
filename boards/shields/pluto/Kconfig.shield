@@ -1,0 +1,5 @@
+config SHIELD_PLUTO_LEFT
+    def_bool $(shields_list_contains,pluto_left)
+
+config SHIELD_PLUTO_RIGHT
+    def_bool $(shields_list_contains,pluto_right)

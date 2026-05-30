@@ -1,0 +1,26 @@
+/*
+ * Pluto - LEFT half overlay
+ *
+ * Columns left-to-right on the physical left PCB:
+ *   col0 = first  = P0.20 = &pro_micro 3
+ *   col1 = second = P0.22 = &pro_micro 4
+ *   col2 = third  = P0.24 = &pro_micro 5
+ *   col3 = fourth = P1.00 = &pro_micro 6
+ *   col4 = fifth  = P0.11 = &pro_micro 7
+ *   col5 = sixth  = P0.17 = &pro_micro 2
+ *
+ * No col-offset needed on the central (left) half.
+ */
+
+#include "pluto.dtsi"
+
+&kscan0 {
+    col-gpios
+        = <&pro_micro 3 GPIO_ACTIVE_HIGH>   /* col0: first  P0.20 */
+        , <&pro_micro 4 GPIO_ACTIVE_HIGH>   /* col1: second P0.22 */
+        , <&pro_micro 5 GPIO_ACTIVE_HIGH>   /* col2: third  P0.24 */
+        , <&pro_micro 6 GPIO_ACTIVE_HIGH>   /* col3: fourth P1.00 */
+        , <&pro_micro 7 GPIO_ACTIVE_HIGH>   /* col4: fifth  P0.11 */
+        , <&pro_micro 2 GPIO_ACTIVE_HIGH>   /* col5: sixth  P0.17 */
+        ;
+};

@@ -1,0 +1,17 @@
+if SHIELD_PLUTO_LEFT
+
+# Max 16 characters
+config ZMK_KEYBOARD_NAME
+    default "Pluto"
+
+config ZMK_SPLIT_ROLE_CENTRAL
+    default y
+
+endif
+
+if SHIELD_PLUTO_LEFT || SHIELD_PLUTO_RIGHT
+
+config ZMK_SPLIT
+    default y
+
+endif
