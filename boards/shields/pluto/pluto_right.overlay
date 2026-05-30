@@ -1,23 +1,20 @@
 /*
  * Pluto - RIGHT half overlay
  *
- * The right PCB is a mirror of the left. Ergogen mirrors from matrix_sixth_num,
- * meaning the rightmost physical column on the right half (closest to center) 
- * uses the same nets as "sixth" on the left.
+ * The right PCB is a mirror of the left (Ergogen mirrors from matrix_sixth_num).
+ * Physical columns left→right as seen from above on the RIGHT PCB:
+ *   sixth (inner, closest to center) → first (outer, pinky side)
  *
- * Physical columns on the RIGHT PCB (left-to-right as you look at it):
- *   physical-left = mirror of "sixth"  = P0.17 = &pro_micro 2
- *   ...
- *   physical-right = mirror of "first" = P0.20 = &pro_micro 3
+ * These map to ZMK cols 6-11 via col-offset = 6.
  *
- * But in the matrix transform, the right half is offset by 6 columns.
- * The col-gpios here must be listed in the same order the ergogen mirror
- * laid out the columns — the RIGHT half's col0 (in ZMK's view after offset)
- * corresponds to the leftmost physical column as seen on the right PCB.
+ *   col6  = sixth  P0.17 -> &gpio0 17
+ *   col7  = fifth  P0.11 -> &gpio0 11
+ *   col8  = fourth P1.00 -> &gpio1 0
+ *   col9  = third  P0.24 -> &gpio0 24
+ *   col10 = second P0.22 -> &gpio0 22
+ *   col11 = first  P0.20 -> &gpio0 20
  *
- * Since the PCB is a true mirror, the col order on the right PCB (left to right
- * looking at it from above) is: sixth, fifth, fourth, third, second, first.
- * That maps to ZMK cols 6..11 via the offset below.
+ * Same physical nets as left half — the PCB is symmetric.
  */
 
 #include "pluto.dtsi"
@@ -28,11 +25,11 @@
 
 &kscan0 {
     col-gpios
-        = <&pro_micro 2 GPIO_ACTIVE_HIGH>   /* col6:  sixth  P0.17 (inner col, closest to center) */
-        , <&pro_micro 7 GPIO_ACTIVE_HIGH>   /* col7:  fifth  P0.11 */
-        , <&pro_micro 6 GPIO_ACTIVE_HIGH>   /* col8:  fourth P1.00 */
-        , <&pro_micro 5 GPIO_ACTIVE_HIGH>   /* col9:  third  P0.24 */
-        , <&pro_micro 4 GPIO_ACTIVE_HIGH>   /* col10: second P0.22 */
-        , <&pro_micro 3 GPIO_ACTIVE_HIGH>   /* col11: first  P0.20 (outer col, pinky) */
+        = <&gpio0 17 GPIO_ACTIVE_HIGH>   /* col6:  sixth  P0.17 (inner) */
+        , <&gpio0 11 GPIO_ACTIVE_HIGH>   /* col7:  fifth  P0.11         */
+        , <&gpio1  0 GPIO_ACTIVE_HIGH>   /* col8:  fourth P1.00         */
+        , <&gpio0 24 GPIO_ACTIVE_HIGH>   /* col9:  third  P0.24         */
+        , <&gpio0 22 GPIO_ACTIVE_HIGH>   /* col10: second P0.22         */
+        , <&gpio0 20 GPIO_ACTIVE_HIGH>   /* col11: first  P0.20 (outer) */
         ;
 };
